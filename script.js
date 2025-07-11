@@ -10,6 +10,13 @@ function showLetter() {
     letterBox.style.display = "block";
     let i = 0;
 
+    const audio = document.getElementById("bgMusic");
+  if (audio.paused) {
+    audio.play().catch((e) => {
+      console.log("Autoplay diblokir, audio dimulai manual.");
+    });
+  }
+    
     function typeWriter() {
       if (i < message.length) {
         typedText.innerHTML += message.charAt(i);
